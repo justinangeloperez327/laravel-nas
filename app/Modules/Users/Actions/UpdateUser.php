@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 class UpdateUser
 {
     /**
-     * @param array{name:string,email:string,password?:string|null,role_ids:array<int,int>} $data
+     * @param  array{name:string,email:string,password?:string|null,role_ids:array<int,int>}  $data
      */
     public function execute(User $actor, User $user, array $data): User
     {
@@ -27,7 +27,7 @@ class UpdateUser
                 'email' => $data['email'],
             ];
 
-            if (! empty($data['password'])) {
+            if ($data['password'] !== null && $data['password'] !== '') {
                 $attributes['password'] = $data['password'];
             }
 
@@ -50,7 +50,7 @@ class UpdateUser
     }
 
     /**
-     * @param array<int,int> $roleIds
+     * @param  array<int,int>  $roleIds
      */
     private function rolesChanged(User $user, array $roleIds): bool
     {
