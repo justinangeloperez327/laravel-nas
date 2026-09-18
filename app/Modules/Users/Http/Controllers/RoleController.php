@@ -31,6 +31,7 @@ class RoleController extends Controller
                 'description' => $role->description,
                 'users_count' => $role->users_count,
                 'permissions_count' => $role->permissions_count,
+                'can_edit' => Gate::allows('update', $role),
             ]);
 
         return Inertia::render('roles/index', [
