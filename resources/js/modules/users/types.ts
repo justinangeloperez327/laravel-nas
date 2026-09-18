@@ -42,4 +42,5 @@ export type RoleRecord = {
     description?: string | null;
     users_count: number;
     permissions_count: number;
+    can_edit: boolean;
 };
