@@ -10,7 +10,7 @@ use Laravel\Fortify\Contracts\ResetsUserPasswords;
 class ResetUserPassword implements ResetsUserPasswords
 {
     /**
-     * @param array<string,string> $input
+     * @param  array<string,string>  $input
      */
     public function reset(User $user, array $input): void
     {
@@ -19,7 +19,7 @@ class ResetUserPassword implements ResetsUserPasswords
         ])->validate();
 
         $user->forceFill([
-            'password' => $input['password'],
+            'password' =>  $input['password'],
         ])->save();
     }
 }
