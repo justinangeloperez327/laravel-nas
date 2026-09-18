@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class CreateUser
 {
     /**
-     * @param array{name:string,email:string,password:string,is_active:bool,role_ids:array<int,int>} $data
+     * @param  array{name:string,email:string,password:string,is_active:bool,role_ids:array<int,int>}  $data
      */
     public function execute(array $data): User
     {
