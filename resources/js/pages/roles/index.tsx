@@ -7,9 +7,6 @@ export default function RolesIndex({ roles }: { roles: RoleRecord[] }) {
     const { auth } = usePage<SharedProps>().props;
     const canCreate =
         auth.user?.permissions.includes('roles.create') ?? false;
-    const canUpdate =
-        auth.user?.permissions.includes('roles.update') ?? false;
-
     return (
         <AppLayout title="Roles & Permissions">
             <Head title="Roles & Permissions" />
@@ -58,7 +55,7 @@ export default function RolesIndex({ roles }: { roles: RoleRecord[] }) {
                                     {role.permissions_count}
                                 </td>
                                 <td className="px-4 py-4 text-right">
-                                    {canUpdate && (
+                                    {role.can_edit && (
                                         <Link
                                             href={`/administration/roles/${role.id}/edit`}
                                             className="font-medium text-slate-700 hover:text-slate-950"
