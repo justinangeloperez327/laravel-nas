@@ -60,9 +60,12 @@ class CreateAdministratorCommand extends Command
             'name' => $name,
             'email' => $email,
             'password' => $password,
-            'email_verified_at' => now(),
             'is_active' => true,
         ]);
+
+        $user->forceFill([
+            'email_verified_at' => now(),
+        ])->save();
 
         $user->roles()->sync([$role->id]);
 
