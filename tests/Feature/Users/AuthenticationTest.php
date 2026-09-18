@@ -56,7 +56,7 @@ class AuthenticationTest extends TestCase
 
         $this->actingAs($user)
             ->get('/dashboard')
-            ->assertRedirect('/verify-email');
+            ->assertRedirect('/email/verify');
     }
 
     public function test_user_can_logout(): void
