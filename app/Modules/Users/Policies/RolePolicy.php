@@ -24,6 +24,7 @@ class RolePolicy
 
     public function update(User $user, Role $role): bool
     {
-        return $user->hasPermission('roles.update');
+        return $role->slug !== 'system-administrator'
+            && $user->hasPermission('roles.update');
     }
 }
