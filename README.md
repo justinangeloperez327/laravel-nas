@@ -30,9 +30,9 @@ The architecture and module boundaries are documented in [docs](docs/README.md).
 
 ## Current Status
 
-The repository is in the application-foundation stage.
+The application foundation is complete and the first modular-monolith business module, **Users**, is implemented.
 
-Business modules will be added incrementally after the Laravel, React, Inertia, TypeScript, database, and CI foundation is stable.
+The Users module provides authentication, email verification, password reset, roles, permissions, account status management, and administrator-controlled user provisioning.
 
 ## Development
 
