@@ -12,7 +12,7 @@ class CreateUser
      */
     public function execute(array $data): User
     {
-        return DB::transaction(function () use ($data): User {
+        $user = DB::transaction(function () use ($data): User {
             $user = User::query()->create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -21,9 +21,12 @@ class CreateUser
             ]);
 
             $user->roles()->sync($data['role_ids']);
-            $user->sendEmailVerificationNotification();
 
-            return $user->load('roles');
+            return $user;
         });
+
+        $user->sendEmailVerificationNotification();
+
+        return $user->load('roles');
     }
 }
