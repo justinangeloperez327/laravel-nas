@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class UpdateRole
 {
     /**
-     * @param array{name:string,slug:string,description?:string|null,permission_ids:array<int,int>} $data
+     * @param  array{name:string,slug:string,description?:string|null,permission_ids:array<int,int>}  $data
      */
     public function execute(Role $role, array $data): Role
     {
