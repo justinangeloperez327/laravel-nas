@@ -27,3 +27,7 @@ We do not introduce microservices, full Domain-Driven Design layering, Clean Arc
 ## Documentation Rule
 
 A meaningful change to a business workflow, module boundary, data ownership rule, integration, security requirement, or deployment strategy must update the relevant document in this directory.
+
+## Module Documentation
+
+- [Users](modules/users.md)
