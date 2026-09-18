@@ -26,10 +26,12 @@ class UserController extends Controller
         $users = User::query()
             ->with('roles:id,name,slug')
             ->when($search !== '', function ($query) use ($search): void {
-                $query->where(function ($query) use ($search): void {
+                $needle = '%'.strtolower($search).'%';
+
+                $query->where(function ($query) use ($needle): void {
                     $query
-                        ->where('name', 'like', "%{$search}%")
-                        ->orWhere('email', 'like', "%{$search}%");
+                        ->whereRaw('LOWER(name) LIKE ?', [$needle])
+                        ->orWhereRaw('LOWER(email) LIKE ?', [$needle]);
                 });
             })
             ->orderBy('name')
@@ -53,10 +55,6 @@ class UserController extends Controller
             'users' => $users,
             'filters' => [
                 'search' => $search,
-            ],
-            'permissions' => [
-                'create' => $request->user()?->can('create', User::class) ?? false,
-                'update' => $request->user()?->can('update', new User) ?? false,
             ],
         ]);
     }
