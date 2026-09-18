@@ -8,7 +8,7 @@ class ChangeUserStatusRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return $this->user()?->can('changeStatus', $this->route('user')) ?? false;
     }
 
     /**
