@@ -21,7 +21,7 @@ class UpdateUser
 
         $emailChanged = $user->email !== $data['email'];
 
-        return DB::transaction(function () use ($user, $data, $emailChanged): User {
+        DB::transaction(function () use ($user, $data, $emailChanged): void {
             $attributes = [
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -31,19 +31,22 @@ class UpdateUser
                 $attributes['password'] = $data['password'];
             }
 
-            if ($emailChanged) {
-                $attributes['email_verified_at'] = null;
-            }
-
             $user->update($attributes);
-            $user->roles()->sync($data['role_ids']);
 
             if ($emailChanged) {
-                $user->sendEmailVerificationNotification();
+                $user->forceFill([
+                    'email_verified_at' => null,
+                ])->save();
             }
 
-            return $user->load('roles');
+            $user->roles()->sync($data['role_ids']);
         });
+
+        if ($emailChanged) {
+            $user->sendEmailVerificationNotification();
+        }
+
+        return $user->refresh()->load('roles');
     }
 
     /**
