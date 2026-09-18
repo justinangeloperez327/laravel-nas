@@ -36,6 +36,11 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    protected static function newFactory(): UserFactory
+    {
+        return UserFactory::new();
+    }
+
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class)
