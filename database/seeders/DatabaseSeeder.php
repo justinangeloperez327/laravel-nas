@@ -7,6 +7,7 @@ use App\Modules\Clients\Database\Seeders\ClientAccessSeeder;
 use App\Modules\Contracts\Database\Seeders\ContractAccessSeeder;
 use App\Modules\DocumentControl\Database\Seeders\DocumentControlAccessSeeder;
 use App\Modules\Organization\Database\Seeders\OrganizationAccessSeeder;
+use App\Modules\Procurement\Database\Seeders\ProcurementAccessSeeder;
 use App\Modules\Projects\Database\Seeders\ProjectAccessSeeder;
 use App\Modules\Suppliers\Database\Seeders\SupplierAccessSeeder;
 use App\Modules\Users\Database\Seeders\UserAccessSeeder;
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ApprovalAccessSeeder::class,
             DocumentControlAccessSeeder::class,
             SupplierAccessSeeder::class,
+            ProcurementAccessSeeder::class,
         ]);
     }
 }

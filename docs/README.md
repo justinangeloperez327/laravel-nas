@@ -45,3 +45,5 @@ A meaningful change to a business workflow, module boundary, data ownership rule
 - [Document Control](modules/document-control.md)
 
 - [Suppliers](modules/suppliers.md)
+
+- [Procurement](modules/procurement.md)
