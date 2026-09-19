@@ -5,7 +5,7 @@ Internal business platform for Noor Al Sahara, built as a Laravel modular monoli
 ## Technology
 
 - Laravel 13
-- PHP 8.3+
+- PHP 8.4.1+
 - React 19
 - Inertia 3
 - TypeScript

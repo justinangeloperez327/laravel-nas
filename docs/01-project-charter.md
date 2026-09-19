@@ -42,7 +42,7 @@ Core principles:
 ## Technology Baseline
 
 - Laravel 13
-- PHP 8.3 or newer
+- PHP 8.4.1 or newer
 - PostgreSQL
 - React with Inertia
 - Tailwind CSS
