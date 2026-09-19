@@ -39,3 +39,5 @@ A meaningful change to a business workflow, module boundary, data ownership rule
 - [Projects](modules/projects.md)
 
 - [Contracts](modules/contracts.md)
+
+- [Approvals](modules/approvals.md)
