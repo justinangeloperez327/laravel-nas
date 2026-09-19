@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Modules\Users\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -14,26 +15,42 @@ class HandleInertiaRequests extends Middleware
      */
     protected $rootView = 'app';
 
-    /**
-     * Determine the current asset version.
-     */
     public function version(Request $request): ?string
     {
         return parent::version($request);
     }
 
     /**
-     * Define the props shared by default.
-     *
-     * @return array<string, mixed>
+     * @return array<string,mixed>
      */
     public function share(Request $request): array
     {
+        /** @var User|null $user */
+        $user = $request->user();
+
+        if ($user) {
+            $user->loadMissing('roles.permissions');
+        }
+
         return [
             ...parent::share($request),
             'appName' => config('app.name'),
             'auth' => [
-                'user' => $request->user(),
+                'user' => $user ? [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'roles' => $user->roles
+                        ->pluck('name')
+                        ->values(),
+                    'permissions' => $user->roles
+                        ->flatMap(fn ($role) => $role->permissions->pluck('slug'))
+                        ->unique()
+                        ->values(),
+                ] : null,
+            ],
+            'flash' => [
+                'success' => fn () => $request->session()->get('success'),
             ],
         ];
     }

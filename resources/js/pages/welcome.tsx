@@ -1,6 +1,9 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
+import type { SharedProps } from '@/types';
 
 export default function Welcome() {
+    const { auth } = usePage<SharedProps>().props;
+
     return (
         <>
             <Head title="Welcome" />
@@ -17,8 +20,18 @@ export default function Welcome() {
                         </h1>
 
                         <p className="mt-6 text-lg leading-8 text-slate-600">
-                            Laravel 13 modular monolith foundation.
+                            Laravel 13 modular monolith for Noor Al Sahara
+                            business operations.
                         </p>
+
+                        <div className="mt-8">
+                            <Link
+                                href={auth.user ? '/dashboard' : '/login'}
+                                className="inline-flex rounded-lg bg-slate-950 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+                            >
+                                {auth.user ? 'Open dashboard' : 'Log in'}
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </main>
