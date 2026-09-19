@@ -37,3 +37,5 @@ A meaningful change to a business workflow, module boundary, data ownership rule
 - [Clients](modules/clients.md)
 
 - [Projects](modules/projects.md)
+
+- [Contracts](modules/contracts.md)

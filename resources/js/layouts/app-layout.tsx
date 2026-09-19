@@ -52,6 +52,12 @@ export default function AppLayout({ title, children }: Props) {
                             Dashboard
                         </Link>
 
+                        {can('contracts.view') && (
+                            <Link href="/contracts" className="block rounded-lg px-3 py-2 font-medium hover:bg-white">
+                                Contracts
+                            </Link>
+                        )}
+
                         {can('projects.view') && (
                             <Link href="/projects" className="block rounded-lg px-3 py-2 font-medium hover:bg-white">
                                 Projects
