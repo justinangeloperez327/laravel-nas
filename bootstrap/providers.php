@@ -6,6 +6,7 @@ use App\Modules\Contracts\ContractsServiceProvider;
 use App\Modules\DocumentControl\DocumentControlServiceProvider;
 use App\Modules\Organization\OrganizationServiceProvider;
 use App\Modules\Projects\ProjectsServiceProvider;
+use App\Modules\Suppliers\SuppliersServiceProvider;
 use App\Modules\Users\UsersServiceProvider;
 use App\Providers\AppServiceProvider;
 
@@ -17,5 +18,6 @@ return [
     DocumentControlServiceProvider::class,
     OrganizationServiceProvider::class,
     ProjectsServiceProvider::class,
+    SuppliersServiceProvider::class,
     UsersServiceProvider::class,
 ];

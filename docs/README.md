@@ -43,3 +43,5 @@ A meaningful change to a business workflow, module boundary, data ownership rule
 - [Approvals](modules/approvals.md)
 
 - [Document Control](modules/document-control.md)
+
+- [Suppliers](modules/suppliers.md)
