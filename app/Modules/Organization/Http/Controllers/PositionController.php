@@ -3,8 +3,8 @@
 namespace App\Modules\Organization\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Organization\Http\Requests\PositionRequest;
 use App\Modules\Organization\Http\Requests\OrganizationStatusRequest;
+use App\Modules\Organization\Http\Requests\PositionRequest;
 use App\Modules\Organization\Models\Position;
 use Illuminate\Http\RedirectResponse;
 
