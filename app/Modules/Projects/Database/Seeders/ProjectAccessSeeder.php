@@ -16,10 +16,14 @@ class ProjectAccessSeeder extends Seeder
             ['name' => 'Update projects', 'slug' => 'projects.update'],
             ['name' => 'Manage project progress', 'slug' => 'projects.manage-progress'],
         ])->map(fn (array $permission): Permission => Permission::query()->updateOrCreate(
-            ['slug' => $permission['slug']], $permission
+            ['slug' => $permission['slug']],
+            $permission,
         ));
 
         $administrator = Role::query()->where('slug', 'system-administrator')->first();
-        if ($administrator) $administrator->permissions()->syncWithoutDetaching($permissions->pluck('id'));
+
+        if ($administrator) {
+            $administrator->permissions()->syncWithoutDetaching($permissions->pluck('id'));
+        }
     }
 }
