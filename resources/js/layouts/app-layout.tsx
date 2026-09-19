@@ -52,6 +52,12 @@ export default function AppLayout({ title, children }: Props) {
                             Dashboard
                         </Link>
 
+                        {can('documents.view') && (
+                            <Link href="/documents" className="block rounded-lg px-3 py-2 font-medium hover:bg-white">
+                                Document Control
+                            </Link>
+                        )}
+
                         {can('approvals.view') && (
                             <Link href="/administration/approvals" className="block rounded-lg px-3 py-2 font-medium hover:bg-white">
                                 Approvals

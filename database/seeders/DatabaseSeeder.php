@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Modules\Approvals\Database\Seeders\ApprovalAccessSeeder;
 use App\Modules\Clients\Database\Seeders\ClientAccessSeeder;
 use App\Modules\Contracts\Database\Seeders\ContractAccessSeeder;
+use App\Modules\DocumentControl\Database\Seeders\DocumentControlAccessSeeder;
 use App\Modules\Organization\Database\Seeders\OrganizationAccessSeeder;
 use App\Modules\Projects\Database\Seeders\ProjectAccessSeeder;
 use App\Modules\Users\Database\Seeders\UserAccessSeeder;
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
             ProjectAccessSeeder::class,
             ContractAccessSeeder::class,
             ApprovalAccessSeeder::class,
+            DocumentControlAccessSeeder::class,
         ]);
     }
 }
