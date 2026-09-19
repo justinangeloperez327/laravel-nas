@@ -4,6 +4,7 @@ namespace App\Modules\Projects\Models;
 
 use App\Modules\Clients\Models\Client;
 use App\Modules\Contracts\Models\Contract;
+use App\Modules\HumanResources\Models\EmployeeProjectAssignment;
 use App\Modules\Organization\Models\BusinessUnit;
 use App\Modules\Organization\Models\Company;
 use App\Modules\Organization\Models\Location;
@@ -79,5 +80,10 @@ class Project extends Model
     public function issues(): HasMany
     {
         return $this->hasMany(ProjectIssue::class);
+    }
+
+    public function employeeAssignments(): HasMany
+    {
+        return $this->hasMany(EmployeeProjectAssignment::class);
     }
 }

@@ -52,6 +52,12 @@ export default function AppLayout({ title, children }: Props) {
                             Dashboard
                         </Link>
 
+                        {can('human-resources.view') && (
+                            <Link href="/human-resources" className="block rounded-lg px-3 py-2 font-medium hover:bg-white">
+                                Human Resources
+                            </Link>
+                        )}
+
                         {can('inventory.view') && (
                             <Link href="/inventory" className="block rounded-lg px-3 py-2 font-medium hover:bg-white">
                                 Inventory

@@ -4,6 +4,7 @@ use App\Modules\Approvals\ApprovalsServiceProvider;
 use App\Modules\Clients\ClientsServiceProvider;
 use App\Modules\Contracts\ContractsServiceProvider;
 use App\Modules\DocumentControl\DocumentControlServiceProvider;
+use App\Modules\HumanResources\HumanResourcesServiceProvider;
 use App\Modules\Inventory\InventoryServiceProvider;
 use App\Modules\Organization\OrganizationServiceProvider;
 use App\Modules\Procurement\ProcurementServiceProvider;
@@ -20,6 +21,7 @@ return [
     DocumentControlServiceProvider::class,
     OrganizationServiceProvider::class,
     InventoryServiceProvider::class,
+    HumanResourcesServiceProvider::class,
     ProjectsServiceProvider::class,
     ProcurementServiceProvider::class,
     SuppliersServiceProvider::class,

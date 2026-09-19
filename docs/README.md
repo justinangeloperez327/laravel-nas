@@ -49,3 +49,5 @@ A meaningful change to a business workflow, module boundary, data ownership rule
 - [Procurement](modules/procurement.md)
 
 - [Inventory](modules/inventory.md)
+
+- [Human Resources](modules/human-resources.md)
