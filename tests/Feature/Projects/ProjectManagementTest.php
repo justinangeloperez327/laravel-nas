@@ -20,8 +20,16 @@ class ProjectManagementTest extends TestCase
     public function test_administrator_can_create_project(): void
     {
         $administrator = $this->administrator();
-        $client = Client::query()->create(['name' => 'Client', 'code' => 'CL-1', 'is_active' => true]);
-        $company = Company::query()->create(['name' => 'NAS', 'code' => 'NAS', 'is_active' => true]);
+        $client = Client::query()->create([
+            'name' => 'Client',
+            'code' => 'CL-1',
+            'is_active' => true,
+        ]);
+        $company = Company::query()->create([
+            'name' => 'NAS',
+            'code' => 'NAS',
+            'is_active' => true,
+        ]);
 
         $this->actingAs($administrator)->post('/projects', [
             'client_id' => $client->id,
@@ -45,6 +53,7 @@ class ProjectManagementTest extends TestCase
     public function test_user_without_permission_cannot_view_projects(): void
     {
         $user = User::factory()->create();
+
         $this->actingAs($user)->get('/projects')->assertForbidden();
     }
 
@@ -54,9 +63,12 @@ class ProjectManagementTest extends TestCase
         $this->seed(OrganizationAccessSeeder::class);
         $this->seed(ClientAccessSeeder::class);
         $this->seed(ProjectAccessSeeder::class);
+
         $user = User::factory()->create();
         $role = Role::query()->where('slug', 'system-administrator')->firstOrFail();
+
         $user->roles()->sync([$role->id]);
+
         return $user;
     }
 }
