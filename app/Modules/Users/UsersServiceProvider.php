@@ -26,6 +26,10 @@ class UsersServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
+        Gate::before(function (User $user, string $ability): ?bool {
+            return $user->hasPermission($ability) ? true : null;
+        });
+
         Gate::policy(User::class, UserPolicy::class);
         Gate::policy(Role::class, RolePolicy::class);
 
