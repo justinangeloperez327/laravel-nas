@@ -31,3 +31,5 @@ A meaningful change to a business workflow, module boundary, data ownership rule
 ## Module Documentation
 
 - [Users](modules/users.md)
+
+- [Organization](modules/organization.md)
